@@ -69,7 +69,7 @@ fig_heatmap = px.imshow(
 
 st.plotly_chart(fig_heatmap, use_container_width=True)
 
-#Pair plot (scatter matrix)
+#Pair plot (scatter matrix)x
 st.subheader("Pair Plot")
 fig_pair = px.scatter_matrix(
     filtered_df,
