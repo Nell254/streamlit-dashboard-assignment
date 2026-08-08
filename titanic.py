@@ -85,18 +85,8 @@ with tab1:
     survival_by_class = filtered_df.groupby(['pclass', 'survived']).size().unstack(fill_value=0)
     survival_by_class_pct = survival_by_class.div(survival_by_class.sum(axis=1), axis=0) * 100
     
-    # fig1 = px.bar(
-    #     survival_by_class_pct,
-    #     x=survival_by_class_pct.index,
-    #     y=['0', '1'],
-    #     labels={'value': 'Percentage', 'pclass': 'Passenger Class'},
-    #     title='Survival Rate by Passenger Class',
-    #     color_discrete_sequence=['#FF6B6B', '#4ECDC9']
-    # )
-    # fig1.update_layout(barmode='group')
-    # st.plotly_chart(fig1, use_container_width=True)
 
-    survival_by_class_pct_reset = survival_by_class_pct.reset_index(name='count')
+    survival_by_class_pct_reset = survival_by_class_pct.reset_index()
     survival_by_class_pct_reset.columns = ['pclass', 'survived', 'count']
 
     fig1 = px.bar(
